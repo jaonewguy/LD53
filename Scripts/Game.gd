@@ -11,6 +11,8 @@ var time = 0
 var timeDirection = 1
 var moveDuration = 2
 
+# https://godotlearn.com/godot-3-1-how-to-move-objects/
+# Fast Copy pasta for game jam.
 func _ready() -> void:
     var screenSize = get_viewport().get_visible_rect().size
     point1 = Vector2(screenSize.x * 0.1, screenSize.y * 0.6)
