@@ -26,6 +26,13 @@ window/stretch/aspect="expand"
 
 common/drop_mouse_on_gui_input_disabled=true
 
+[input]
+
+touched={
+"deadzone": 0.5,
+"events": [  ]
+}
+
 [input_devices]
 
 pointing/emulate_touch_from_mouse=true
