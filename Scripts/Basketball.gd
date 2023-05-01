@@ -15,6 +15,10 @@ var is_drag = false
 var is_press = false
 var is_release = false
 
+var prev_pos : Vector2
+var total_distance : float
+var mouse_velocity : Vector2
+
 func _ready() -> void:
     pass
 
@@ -31,18 +35,26 @@ func _input(event: InputEvent) -> void:
     is_press = !is_drag and event.is_pressed()
     is_release = !is_drag and !event.is_pressed()
     
-    if is_drag or is_press or is_left_click:
-        animationPlayer.play("Spin")
+    if is_press or is_left_click:
         _start_fx()
+        
+        if is_drag:
+            total_distance += abs(prev_pos.distance_to(get_global_mouse_position()))
+            
+            print(event.get_speed().abs() * total_distance / 100000)
+        else:
+            # Reset if not charging up.
+            total_distance = 0
     elif is_release:
-        animationPlayer.stop()
         _restart_fx()
         
 func _start_fx() -> void:
+    animationPlayer.play("Spin")
     fireBG.show()
     implosion_fx.show()
 
 func _restart_fx() -> void:
+    animationPlayer.stop()
     fireBG.hide()
     fireBG.restart()
     implosion_fx.hide()
