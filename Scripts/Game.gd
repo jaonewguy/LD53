@@ -15,8 +15,8 @@ var moveDuration = 2
 # Fast Copy pasta for game jam.
 func _ready() -> void:
     var screenSize = get_viewport().get_visible_rect().size
-    point1 = Vector2(screenSize.x * 0.1, screenSize.y * 0.6)
-    point2 = Vector2(screenSize.x - (screenSize.x * 0.1), screenSize.y * 0.6)
+    point1 = Vector2(screenSize.x * 0.1, screenSize.y * 0.3)
+    point2 = Vector2(screenSize.x - (screenSize.x * 0.1), screenSize.y * 0.3)
 
 func _process(delta):
 
